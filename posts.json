@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "look here",
+    "date": "2025-04-13",
+    "excerpt": "this is a test",
+    "filename": "hi.md"
+  },
+  {
+    "id": 2,
+    "title": "yet-another-test",
+    "date": "2025-04-13",
+    "excerpt": "this is another test",
+    "filename": "yetanothertest.md"
+  },
+  {
+    "id": 3,
+    "title": "helloworld",
+    "date": "2025-04-13",
+    "excerpt": "Helloworld",
+    "filename": "helloworld.md"
+  }
+]
