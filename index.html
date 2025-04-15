@@ -113,7 +113,6 @@
                 <img src="88x31/c++button.gif" alt="88x31 button 2" width="88" height="31">
                 <img src="88x31/microcenter.gif" alt="88x31 button 2" width="88" height="31">
                 <img src="88x31/button (1).gif" alt="88x31 button 2" width="88" height="31">
-                <!-- Add more <img> tags for additional buttons -->
               </div>
               
             </div>
@@ -210,7 +209,6 @@
     const response = await fetch(`posts/${post.filename}`);
     let markdownContent = await response.text();
     
-    // Remove front matter if present
     if (markdownContent.startsWith('---')) {
       const frontMatterEnd = markdownContent.indexOf('---', 3);
       if (frontMatterEnd !== -1) {
@@ -218,7 +216,6 @@
       }
     }
 
-    // Convert markdown to HTML
     const htmlContent = marked.parse(markdownContent);
 
     document.getElementById("content").innerHTML = `
