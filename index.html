@@ -12,11 +12,12 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
       body {
         font-family: "Courier Prime", monospace;
-        background-color: #fafafa;
-        color: #222;
+        background-color: #32302f; /* Gruvbox Dark Soft background */
+        color: #ebdbb2; /* Gruvbox Light text */
         line-height: 1.75;
       }
 
@@ -25,7 +26,7 @@
       }
 
       a {
-        color: #4a4a4a;
+        color: #83a598; /* Gruvbox Aqua */
         text-decoration: underline;
       }
 
@@ -39,6 +40,7 @@
       h1, h2, h3 {
         font-weight: bold;
         font-family: "Glegoo", serif;
+        color: #d79921; /* Gruvbox Yellow */
       }
 
       h1 {
@@ -58,17 +60,18 @@
       }
 
       blockquote {
-        border-left: 2px solid #999;
+        border-left: 2px solid #928374; /* Gruvbox Gray */
         padding-left: 1rem;
         font-style: italic;
-        color: #444;
+        color: #bdae93; /* Gruvbox Light Gray */
       }
 
       code, pre {
-        background-color: #eee;
+        background-color: #504945; /* Gruvbox Dark Gray */
         font-size: 0.9em;
         padding: 0.2em 0.4em;
         border-radius: 4px;
+        color: #d3869b; /* Gruvbox Pink */
       }
 
       pre {
@@ -79,32 +82,50 @@
       .bio-section {
         transition: opacity 0.3s ease;
       }
+
+      #mc-splash {
+        position: relative;
+        float: right;
+        transform: rotate(-8deg);
+        font-family: "Press Start 2P", monospace;
+        color: #fabd2f; /* Gruvbox Yellow */
+      }
     </style>
   </head>
   <body class="p-4 md:p-6">
+ 
+    
     <div class="max-w-3xl mx-auto document">
         <header class="mb-6" id="header">
+          
+          
             <div class="flex justify-between items-center">
+             
               <p class="text-lg">ksgat | gabe</p>
+              <p id="mc-splash" class="text-yellow-400 text-sm font-bold animate-pulse rotate-[8deg]">
+                <!-- Will be filled by JS -->
+              </p>
               <p class="text-sm">
                 <a href="https://github.com/ksgat" target="_blank" class="text-lg">github</a> |
                 <a href="https://last.fm/user/bikwong" target="_blank" class="text-lg">last.fm</a>
               </p>
+              
             </div>
             <div id="bio-section" class="bio-section">
               <p class="italic text-sm mt-2">14, tinkering</p>
               <p class="italic text-sm mb-4">"do less"</p>
               <hr class="my-4 border-gray-400" />
+             
+
               <p class="italic">Who am i <i>?</i></p>
               <p>
                 i'm gabe, a 14-year-old programmer, avgeek, and generally a maker. i code
                 in c++, python, and more recently rust. passionate about cybersecurity,
                 and animanga, music, and R/C. You can catch me at
-                <a href="https://flitefest.com" target="_blank">flitefest</a>, most
+                <span style="color: #d79921;"><a href="https://flitefest.com" target="_blank">flitefest</a></span>, most
                 hackathons in nova, or simply via email. writing about my projects,
                 ctfs, and things i care about
               </p>
-              <p class="text-sm">credit to @gizmobly on Xitter, this site is mostly based off of his</p>
               <a href="/rss.xml" class="text-xs underline text-gray-600">RSS</a>
 
               <div class="flex flex-wrap gap-2 my-3">
@@ -113,6 +134,8 @@
                 <img src="88x31/c++button.gif" alt="88x31 button 2" width="88" height="31">
                 <img src="88x31/microcenter.gif" alt="88x31 button 2" width="88" height="31">
                 <img src="88x31/button (1).gif" alt="88x31 button 2" width="88" height="31">
+                <img src="88x31/americanflagbutton.png" alt="88x31 button 2" width="88" height="31">
+
                 <!-- Add more <img> tags for additional buttons -->
               </div>
               
@@ -159,7 +182,7 @@
                    onclick="renderBlogPost(${post.id})">
               <h2 class="text-xl mb-1">${post.title}</h2>
               <p class="text-xs text-gray-600 mb-1">${post.date}</p>
-              <p class="text-sm text-gray-800">${post.excerpt}</p>
+              <p class="text-sm text-white-800">${post.excerpt}</p>
           </article>
         `
           )
@@ -242,9 +265,31 @@
     document.getElementById("content").innerHTML = "<p>Post not found</p>";
   }
 }
+      const splashQuotes = [
+        "Now with RTX!",
+        "It'll be fine...",
+        "The F students, are the inventors!",
+        "Chicken Jockey!!!",
+        "Now corroding!",
+        "Whats that? whats a failsafe",
+        "uǝqɹǝuuᴉᗡ",
+        "Tester? I hardly know her.",
+        "\"pure, lazy, and immutable\"",
+        "Flite-tested!",
+        "It just works™",
+        "Build, fly, crash, repeat!",
+        "Now with less LaLaMo slop"
+      ];
+
       window.onload = function () {
+        const splashEl = document.getElementById("mc-splash");
+        if (splashEl) {
+          splashEl.textContent = splashQuotes[Math.floor(Math.random() * splashQuotes.length)];
+        }
         handleRoute();
       };
     </script>
+
+    
   </body>
 </html>
